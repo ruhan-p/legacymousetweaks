@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.infloat.legacymousetweaks.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "GuiContainerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
