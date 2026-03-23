@@ -4,6 +4,7 @@ import com.infloat.legacymousetweaks.config.ConfigManager;
 import com.infloat.legacymousetweaks.config.MouseTweaksConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.slot.CraftingResultSlot;
@@ -201,6 +202,11 @@ public abstract class GuiContainerMixin {
     private void lmt_onRenderWheel(int mouseXParam, int mouseYParam, float deltaTicks, CallbackInfo ci) {
         try {
             if (!lmt_config().wheelTweak) {
+                return;
+            }
+            // In the creative screen the item list has its own scroll and onMouseClick
+            // behaves differently — items disappear or scroll fires twice. Disable entirely.
+            if ((Object) this instanceof CreativeInventoryScreen) {
                 return;
             }
             MinecraftClient mc = MinecraftClient.getInstance();

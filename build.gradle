@@ -27,9 +27,6 @@ dependencies {
 	mappings(legacy.yarn(project.minecraft_version, project.yarn_build))
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${project.fabric_version}"
-	modCompileOnly("io.github.prospector:modmenu:${project.modmenu_version}") {
-		transitive = false
-	}
 }
 
 processResources {
